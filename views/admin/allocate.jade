@@ -1,0 +1,24 @@
+div.formclass(ng-controller="alocateBookCtrl")
+   .form-group.row
+      h2
+         font(color="green", size="4") Allocate Books
+
+   .form-group.row
+      p
+         font(color="green", size="4") {{success}}
+      p
+         font(color="green", size="4") {{error}}
+   .form-group.row
+      label.col-xs-2.col-form-label(for='example-search-input3') Book Author
+      .col-xs-10
+         input#example-text-input3.form-control(type='text', value='Book Name', ng-model="allocatedBook.name", required='')
+   .form-group.row
+      label.col-xs-2.col-form-label(for='example-text-input1') Author Name
+      .col-xs-10
+         input#example-text-input1.form-control(type='text', value='Author Name', ng-model="allocatedBook.author", required='')
+   .form-group.row
+      label.col-xs-2.col-form-label(for='example-search-input2') Date
+      .col-xs-10
+         input#example-search-input2.form-control(type='date', value='Date' ng-model='allocatedBook.date', required='')
+   .form-group.row.form-check
+      button.btn.btn-primary(ng-click='allocate()') Submit

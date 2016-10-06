@@ -1,0 +1,23 @@
+form.formclass(ng-controller="userCtrl" ng-submit="register()")
+    .form-group
+        h3
+            font(color="blue", size="5") User SignUp
+    .form-group
+        br
+        p
+            font(color="green", size="4") {{success}}
+        p
+            font(color="red", size="4") {{error}}
+    .form-group
+        label(for='exampleInputEmail1') Email address
+        input#exampleInputEmail1.form-control(type='email',ng-model='user.email', aria-describedby='emailHelp', placeholder='Enter email')
+    .form-group
+        label(for='exampleInputPassword1') UserName
+        input#exampleInputPassword1.form-control(type='text', ng-model='user.username',placeholder='username')
+    .form-group
+        label(for='exampleInputPassword2') Fullname
+        input#exampleInputPassword2.form-control(type='text', ng-model='user.fullname',placeholder='fullname')
+    .form-group
+        label(for='exampleInputPassword3') Number
+        input#exampleInputPassword3.form-control(type='number',ng-model='user.number', placeholder='Number')
+    button.btn.btn-primary(type='submit') Submit

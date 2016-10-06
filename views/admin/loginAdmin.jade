@@ -1,0 +1,38 @@
+html(lang='en')
+   head
+      title Admin HomePage
+   link(rel="stylesheet" href="/css/bootstrap.min.css")
+   link(rel="stylesheet" href="/css/styles.css")
+   script(src="/js/jquery-2.1.1.min.js")
+   script(src="/js/bootstrap.min.js")
+   script(src="/bower_components/angular/angular.min.js")
+   script(src="/bower_components/angular-route.min.js")
+   script(src="/adminHomeCtrl.js")
+
+   body
+      div(ng-app="adminHome")
+         nav.navbar.navbar-default
+            .container-fluid
+               .navbar-header
+
+               ul.nav.navbar-nav
+                  li.nav-item.active
+                     a.nav-link(href='/')
+                        | Home
+                        span.sr-only (current)
+         div.formclass
+             form(action= "/admin/login", method= "post")
+                 .form-group
+                     h3
+                         font(color="blue", size="5") Admin Login
+                 .form-group
+                     br
+                     p
+                         font(color="red", size="4") {{error}}
+                 .form-group
+                     label(for='exampleInputPassword12') UserName
+                     input#exampleInputPassword1.form-control(type='text', name='enterusername',placeholder='username')
+                 .form-group
+                     label(for='exampleInputPassword11') Password
+                     input#exampleInputPassword11.form-control(type='password', name='password',placeholder='password')
+                 button.btn.btn-primary(type='submit') Submit

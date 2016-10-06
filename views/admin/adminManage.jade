@@ -1,0 +1,41 @@
+html(lang='en')
+   head
+      title Admin Manage
+   link(rel="stylesheet" href="/css/bootstrap.min.css")
+   link(rel="stylesheet" href="/css/styles.css")
+   script(src="/js/jquery-2.1.1.min.js")
+   script(src="/js/bootstrap.min.js")
+   script(src="/bower_components/angular/angular.min.js")
+   script(src="/bower_components/angular-route.min.js")
+
+   script(src="/adminHomeCtrl.js")
+   body(ng-app= "adminHome")
+      div(ng-controller="homeCtrl")
+         nav.navbar.navbar-default
+            .container-fluid
+               .navbar-header
+
+               ul.nav.navbar-nav
+                  li.nav-item.active
+                     a.nav-link(href='/')
+                        | Home
+                        span.sr-only (current)
+
+         .list-group
+            a.list-group-item.disabled(href='#')
+              font(color="blue", size="4")
+                  | Library Admin Management Page
+            a.list-group-item(href='#/addBooks') Add New Books And their Details
+            a.list-group-item(href='#/checkUser') Allocate Books to Users
+            a.list-group-item(href='#/bookDelivery') Book Delivery
+            a.list-group-item(href='#/viewTodaysSummary') Sign up new Users
+
+   div(ng-view='')
+
+
+
+
+
+
+
+

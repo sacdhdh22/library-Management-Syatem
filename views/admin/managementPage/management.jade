@@ -1,0 +1,31 @@
+html(lang='en')
+   head
+      title Admin HomePage
+   link(rel="stylesheet" href="/css/bootstrap.min.css")
+   link(rel="stylesheet" href="/css/styles.css")
+   script(src="/js/jquery-2.1.1.min.js")
+   script(src="/js/bootstrap.min.js")
+   script(src="/bower_components/angular/angular.min.js")
+   script(src="/bower_components/angular/angular-route.min.js")
+
+   script(src="/admin/managementPage/managementCtrl.js")
+   body
+      div
+         nav.navbar.navbar-default
+            .container-fluid
+               .navbar-header
+
+               ul.nav.navbar-nav
+                  li.nav-item.active
+                     a.nav-link(href='/')
+                        | Home
+                        span.sr-only (current)
+
+
+      div(ng-app= "libraryHome")
+         form.formclass( ng-controller="libCtrl" ng-submit="getData()")
+            .form-group
+               h3
+                  font(color="blue", size="5") Admin SignUp
+
+            .form-group

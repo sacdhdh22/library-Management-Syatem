@@ -1,0 +1,48 @@
+div.formclass(ng-controller="checkUserCtrl")
+   div(ng-hide="result")
+      .form-group.row
+         h2
+            font(color="green", size="4") Check User
+
+      .form-group.row
+         p
+            font(color="red", size="4") {{error}}
+
+      .form-group.row
+         label.col-xs-2.col-form-label(for='example-search-input12') Email
+         .col-xs-10
+            input#example-search-input12.form-control(type='email', value='Check  User' ng-model='useremail', required='')
+      .form-group.row.form-check
+         button.btn.btn-primary(ng-click='checkUser()') Submit
+
+   div(ng-show="result")
+      .container
+         h3 User Details
+         p
+           font(size='3', color='green') {{fullname}}
+         p
+            font(size='3', color='green') {{Email}}
+         p
+            font(size='3', color='green')  {{Number}}
+
+
+      div
+         .container
+            h4
+               font(color= "blue") Allocate Books
+               font(size="4", color= "green")
+                input(type='text', ng-model='search', placeholder="search for books")
+            table.table.table-hover
+               thead
+                  tr
+                     th Book Name
+                     th Book Author
+                     th Status
+               tbody
+                  tr(ng-repeat="book in books |filter:search")
+                    td {{book.name}}
+                    td {{book.author}}
+                    td(ng-if="book.status==0", ng-class="{green : book.status==0}")
+                       a.btn.btn-primary(ng-click='storeTransaction(book._id)') Available
+                    td(ng-if="book.status==1", ng-class="{red : book.status==1}") Unavailable
+

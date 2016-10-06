@@ -1,0 +1,20 @@
+div.formclass(ng-controller="addBookCtrl")
+   .form-group.row
+      h2
+        font(color="green", size="4") Add new Books
+
+   .form-group.row
+      p
+         font(color="green", size="4") {{success}}
+      p
+         font(color="green", size="4") {{error}}
+   .form-group.row
+      label.col-xs-2.col-form-label(for='example-text-input') Book Name
+      .col-xs-10
+         input#example-text-input.form-control(type='text', value='Book Name', ng-model="book.name", required='')
+   .form-group.row
+      label.col-xs-2.col-form-label(for='example-search-input') Book Author
+      .col-xs-10
+         input#example-search-input.form-control(type='search', value='Book Author' ng-model='book.author', required='')
+   .form-group.row.form-check
+      button.btn.btn-primary(ng-click='submitBooks()') Submit

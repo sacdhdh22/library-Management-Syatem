@@ -1,0 +1,57 @@
+html(lang='en')
+   head
+      title Admin HomePage
+   link(rel="stylesheet" href="/css/bootstrap.min.css")
+   link(rel="stylesheet" href="/css/styles.css")
+   script(src="/js/jquery-2.1.1.min.js")
+   script(src="/js/bootstrap.min.js")
+   script(src="/bower_components/angular/angular.min.js")
+   script(src="/bower_components/angular-route.min.js")
+
+   script(src="/adminHomeCtrl.js")
+   body
+      div
+         nav.navbar.navbar-default
+            .container-fluid
+               .navbar-header
+
+               ul.nav.navbar-nav
+                  li.nav-item.active
+                     a.nav-link(href='/')
+                        | Home
+                        span.sr-only (current)
+
+
+      div(ng-app="adminHome")
+         form.formclass( ng-controller="adminCtrl" ng-submit="register()")
+            .form-group
+               h3
+                  font(color="blue", size="5") Admin SignUp
+            .form-group
+               br
+               p
+                  font(color="green", size="4") {{success}}
+               p
+                  font(color="red", size="4") {{error}}
+            .form-group
+               label(for='exampleInputEmail1') Email address
+               input#exampleInputEmail1.form-control(type='email',ng-model='admin.email', aria-describedby='emailHelp', placeholder='Enter email')
+            .form-group
+               label(for='exampleInputPassword1') UserName
+               input#exampleInputPassword1.form-control(type='text', ng-model='admin.username',placeholder='username')
+            .form-group
+               label(for='exampleInputPassword1') Password
+               input#exampleInputPassword1.form-control(type='password', ng-model='admin.password',placeholder='password')
+            .form-group
+               label(for='exampleInputPassword1') Confirm password
+               input#exampleInputPassword1.form-control(type='password', ng-model='admin.confirmPassword',placeholder='confirm password')
+            .form-group
+               label(for='exampleInputPassword2') Fullname
+               input#exampleInputPassword2.form-control(type='text', ng-model='admin.fullname',placeholder='fullname')
+            .form-group
+               label(for='exampleInputPassword3') Number
+               input#exampleInputPassword3.form-control(type='number',ng-model='admin.number', placeholder='Number')
+
+
+            button.btn.btn-primary(type='submit') Submit
+

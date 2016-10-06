@@ -1,0 +1,17 @@
+.formclass{
+    width: 40%;
+    height:40%;
+    padding-left: 4em;
+}
+.formclass{
+    width: 40%;
+    float:left;
+    height:40%;
+    padding-left: 4em;
+}
+.red{
+    color:red;
+}
+.green{
+    color:green;
+}

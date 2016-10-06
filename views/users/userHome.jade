@@ -1,0 +1,32 @@
+html(lang='en')
+   head
+      title User Registration
+   link(rel="stylesheet" href="/css/bootstrap.min.css")
+   link(rel="stylesheet" href="/css/styles.css")
+   script(src="/js/jquery-2.1.1.min.js")
+   script(src="/js/bootstrap.min.js")
+   script(src="/bower_components/angular/angular.min.js")
+   script(src="/bower_components/angular-route.min.js")
+   script(src="/userHomeCtrl.js")
+   body(ng-app= "userHome" , ng-controller="homeCtrl")
+      div
+                        nav.navbar.navbar-default
+                           .container-fluid
+                              .navbar-header
+
+                              ul.nav.navbar-nav
+                                 li.nav-item.active
+                                    a.nav-link(href='/')
+                                       | Home
+                                       span.sr-only (current)
+
+
+                        div(ng-view='')
+
+
+
+
+
+
+
+
