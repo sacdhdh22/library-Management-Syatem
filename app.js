@@ -8,7 +8,8 @@ var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var mongoose = require('mongoose');
 var Promise = require('bluebird');
-
+var session      = require('express-session');
+var MongoStore   = require('connect-mongo')(session);
 var routes = require('./server');
 
 // connection
@@ -24,7 +25,11 @@ app.use(express.static(path.join(__dirname, 'controller_frontEnd')));
 app.use(require('express-session')({
     secret           : 'keyboard cat',
     resave           : false,
-    saveUninitialized: false
+    saveUninitialized: false,
+    store            : new MongoStore({
+        mongooseConnection: mongoose.connection,
+        ttl               : 30 * 60
+    })
 }));
 
 

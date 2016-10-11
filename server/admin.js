@@ -27,7 +27,7 @@ router.get('/login',function(req, res){
     res.render('admin/loginAdmin');
 });
 
-router.get('/adminManage',function(req, res){
+router.get('/adminManage', authorize,function(req, res){
     res.render('admin/adminManage');
 });
 
@@ -35,7 +35,7 @@ router.get('/loginPls',function(req, res){
     res.render('admin/loginPls')
 });
 
-router.get('/bookDelivery',function(req, res){
+router.get('/bookDelivery',authorize,function(req, res){
     res.render('admin/bookDelivery')
 });
 
@@ -43,11 +43,11 @@ router.get('/errorMsg',function(req, res){
     res.render('admin/errorMsg')
 });
 
-router.get('/addbooks',function(req, res){
+router.get('/addbooks',authorize, function(req, res){
     res.render('admin/addbooks')
 });
 
-router.get('/checkUser',function(req, res){
+router.get('/checkUser',authorize ,function(req, res){
     res.render('admin/checkUser')
 });
 
@@ -73,7 +73,6 @@ function login(req, res, next){
         }
         else {
             req.session.admin = data.admin;
-            console.log(req.session);
             res.redirect('/admin/adminManage');
 
         }
@@ -333,6 +332,13 @@ function changeStatus(req, res, next){
     );
 }
 
+function authorize(req, res, next) {
+    if (req.session.admin) {
+        next();
+    } else {
+        res.redirect('/admin/login');
+    }
+}
 var messages = {
     usernameInUse: 'Username is already in use',
     phonenumberInUse: 'Mobile number is already in use',
